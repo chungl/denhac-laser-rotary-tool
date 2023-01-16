@@ -1,12 +1,12 @@
 roller_d=22.7;
 roller_gap=17.8;
 
-frame_w=15;
+frame_w=20;
 
-screw_d=4;
-screw_slot_w=4;
+screw_d=3.2;
+screw_slot_w=8;
 screw_separation=31.7;
-nut_id=5.1;
+nut_id=6.1;
 
 snap_undersize=3;
 snap_oversize=2;
@@ -16,7 +16,7 @@ snap_relief_h=frame_w-7;
 t=1;
 text_depth=.1;
 
-version="v0.2";
+version="v0.3";
 
 NOTHING=0.1;
 CUT_T = t + 2*NOTHING;
@@ -39,7 +39,7 @@ module roller_cut() {
         cylinder(d=roller_d, h=CUT_T);
         translate([roller_d/2, 0, 0]) screw_slot();
         // rotate([0,0,180]) translate([roller_d/2, 0, 0]) screw_slot();
-        translate([-screw_separation/2, 0, 0]) cylinder(d=screw_slot_w, h=CUT_T);
+        translate([-screw_separation/2, 0, 0]) cylinder(d=screw_d, h=CUT_T);
         snap();
     }
 }
