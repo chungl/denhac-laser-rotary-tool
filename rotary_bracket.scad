@@ -1,12 +1,12 @@
 roller_d=22.7;
-roller_gap=17.8;
+roller_gap=18;
 
 frame_w=20;
 
 screw_d=3.2;
 screw_slot_w=8;
-screw_separation=31.7;
-nut_id=6.1;
+screw_separation=31.5;
+nut_hex_od=6;
 
 snap_undersize=3;
 snap_oversize=2;
@@ -16,7 +16,7 @@ snap_relief_h=frame_w-7;
 t=1;
 text_depth=.1;
 
-version="v0.3";
+version="V0.4";
 
 NOTHING=0.1;
 CUT_T = t + 2*NOTHING;
@@ -69,7 +69,7 @@ module oval(d, w, t) {
 module screw_slot() {
     union() {
         oval(d=screw_d, w=screw_slot_w, t=CUT_T);
-        translate([(screw_separation-roller_d)/2,0,0]) rotate([0,0,30]) cylinder(d=nut_id, h=CUT_T, $fn=6);
+        translate([(screw_separation-roller_d)/2,0,0]) rotate([0,0,30]) cylinder(d=nut_hex_od, h=CUT_T, $fn=6);
     }
 }
 
